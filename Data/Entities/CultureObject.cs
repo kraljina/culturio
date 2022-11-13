@@ -1,10 +1,8 @@
 ﻿using Microsoft.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore.Metadata.Builders;
 
-namespace Span.Culturio.Api.Data.Entities
-{
-    public class CultureObject
-    {
+namespace Span.Culturio.Api.Data.Entities {
+    public class CultureObject {
         public int Id { get; set; }
         public string Name { get; set; }
         public int CompanyId { get; set; }
@@ -12,15 +10,14 @@ namespace Span.Culturio.Api.Data.Entities
         public string Address { get; set; }
         public int ZipCode { get; set; }
         public string City { get; set; }
-        public int AdminUserId
-        {
+        public int AdminUserId {
             get; set;
         }
 
-        public class CultureObjectConfigurationBuilder : IEntityTypeConfiguration<CultureObject>
-        {
-            public void Configure(EntityTypeBuilder<CultureObject> builder)
-            {
+        public virtual ICollection<PackageItem> PackageItems { get; set; }
+
+        public class CultureObjectConfigurationBuilder : IEntityTypeConfiguration<CultureObject> {
+            public void Configure(EntityTypeBuilder<CultureObject> builder) {
                 builder.ToTable("CultureObjects");
                 builder.HasKey(x => x.Id);
                 builder.Property(x => x.Name).IsRequired().HasMaxLength(100);

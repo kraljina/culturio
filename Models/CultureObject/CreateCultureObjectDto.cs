@@ -1,9 +1,7 @@
 ﻿using FluentValidation;
 
-namespace Span.Culturio.Api.Models.CultureObject
-{
-    public class CreateCultureObjectDto
-    {
+namespace Span.Culturio.Api.Models.CultureObject {
+    public class CreateCultureObjectDto {
         public string Name { get; set; }
         public int CompanyId { get; set; }
         public string ContactEmail { get; set; }
@@ -13,10 +11,8 @@ namespace Span.Culturio.Api.Models.CultureObject
         public int AdminUserId { get; set; }
     }
 
-    public class CreateCultureObjectValidator : AbstractValidator<CreateCultureObjectDto>
-    {
-        public CreateCultureObjectValidator()
-        {
+    public class CreateCultureObjectValidator : AbstractValidator<CreateCultureObjectDto> {
+        public CreateCultureObjectValidator() {
             RuleFor(x => x.Name).NotEmpty().MaximumLength(100);
             RuleFor(x => x.ContactEmail).NotEmpty().MaximumLength(25);
             RuleFor(x => x.CompanyId).NotEmpty().GreaterThanOrEqualTo(1);

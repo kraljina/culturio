@@ -1,7 +1,5 @@
-﻿namespace Span.Culturio.Api.Models.CultureObject
-{
-    public class CultureObjectDto
-    {
+﻿namespace Span.Culturio.Api.Models.CultureObject {
+    public class CultureObjectDto {
         public int Id { get; set; }
         public string Name { get; set; }
         public int CompanyId { get; set; }
