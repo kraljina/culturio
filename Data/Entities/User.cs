@@ -11,6 +11,8 @@ namespace Span.Culturio.Api.Data.Entities {
         public byte[] PasswordHash { get; set; }
         public byte[] PasswordSalt { get; set; }
 
+        public virtual ICollection<Subscription> Subscriptions { get; set; }
+
         public class UserConfigurationBuilder : IEntityTypeConfiguration<User> {
             public void Configure(EntityTypeBuilder<User> builder) {
                 builder.ToTable("Users");

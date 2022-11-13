@@ -38,15 +38,14 @@ namespace Span.Culturio.Api.Services.Package {
         }
         
         public async Task<List<PackageDto>> GetPackagesAsync() {
-            var packages = _context.Packages.ToListAsync();
-            var packageItems = _context.PackageItems.ToListAsync();
-
+            var packages = await _context.Packages.ToListAsync();
             var packageDtos = _mapper.Map<List<PackageDto>>(packages);
-            var packageItemDtos = _mapper.Map<List<PackageItemDto>>(packageItems);
 
             packageDtos.ForEach(x =>
             {
-                x.CultureObjects = packageItemDtos.Where(y => y.Id == x.Id).ToList();
+                var packageItems = _context.PackageItems.Where(y => y.PackageId == x.Id).ToList();
+                var packageItemDtos = _mapper.Map<List<PackageItemDto>>(packageItems);
+                x.CultureObjects = packageItemDtos;
             });
 
             return packageDtos;

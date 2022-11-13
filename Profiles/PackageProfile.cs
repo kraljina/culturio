@@ -14,7 +14,6 @@ namespace Span.Culturio.Api.Profiles {
                 .ForMember(dest => dest.AvailableVisitsCount, opt => opt.MapFrom(src => src.AvailableVisits));
 
             CreateMap<Package, PackageDto>().ForMember(dest => dest.CultureObjects, opt => opt.MapFrom(src => src.PackageItems));
-            CreateMap<PackageItem, PackageItemDto>();
 
             CreateMap<PackageItem, PackageItemDto>()
                 .ForMember(dest => dest.AvailableVisits, opt => opt.MapFrom(src => src.AvailableVisitsCount))
