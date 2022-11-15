@@ -5,6 +5,7 @@ using Span.Culturio.Api.Data;
 using Span.Culturio.Api.Services.CultureObject;
 using Span.Culturio.Api.Services.User;
 using Span.Culturio.Api.Services.Package;
+using Span.Culturio.Api.Services.Subscriptions;
 
 var builder = WebApplication.CreateBuilder(args);
 
@@ -32,6 +33,7 @@ builder.Services.AddAutoMapper(AppDomain.CurrentDomain.GetAssemblies());
 builder.Services.AddScoped<ICultureObjectService, CultureObjectService>();
 builder.Services.AddScoped<IUserService, UserService>();
 builder.Services.AddScoped<IPackageService, PackageService>();
+builder.Services.AddScoped<ISubscriptionService, SubscriptionService>();
 
 var app = builder.Build();
 

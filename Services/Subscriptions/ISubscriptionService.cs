@@ -6,6 +6,8 @@ namespace Span.Culturio.Api.Services.Subscriptions
 {
     public interface ISubscriptionService {
         Task<SubscriptionDto> CreateAsync(CreateSubscriptionDto createSubscriptionDto);
-        Task<SubscriptionDto> GetAsync(int userId);
+        Task<IEnumerable<SubscriptionDto>> GetAsync(int userId);
+        Task<string> TrackVisit(TrackVisitDto trackVisitDto);
+        Task<string> Activate(ActivateDto activateDto);
     }
 }

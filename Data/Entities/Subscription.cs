@@ -6,15 +6,15 @@ namespace Span.Culturio.Api.Data.Entities {
         public int Id { get; set; }
         public int UserId { get; set; }
         public int PackageId { get; set; }
-        public int Name { get; set; }
-        public DateTime ActiveFrom { get; set; }
-        public DateTime ActiveTo { get; set; }
+        public string Name { get; set; }
+        public DateTime? ActiveFrom { get; set; }
+        public DateTime? ActiveTo { get; set; }
         public string State { get; set; }
         public int RecordedVisits { get; set; }
 
         public virtual User User { get; set; }
         public virtual Package Package { get; set; }
-
+        public virtual ICollection<Visits> Visits { get; set; }
     }
 
     public class SubscriptionsConfiguration : IEntityTypeConfiguration<Subscription> {
@@ -24,9 +24,9 @@ namespace Span.Culturio.Api.Data.Entities {
             builder.HasOne(x => x.User).WithMany(x => x.Subscriptions).HasForeignKey(x => x.UserId);
             builder.HasOne(x => x.Package).WithMany(x => x.Subscriptions).HasForeignKey(x => x.PackageId);
             builder.Property(x => x.Name).IsRequired();
-            builder.Property(x => x.ActiveFrom).HasDefaultValue("getdate()");
-            builder.Property(x => x.ActiveTo).HasDefaultValue("getdate()");
-            builder.Property(x => x.State).HasDefaultValue("active");
+            builder.Property(x => x.ActiveFrom).HasDefaultValue(null);
+            builder.Property(x => x.ActiveTo).HasDefaultValue(null);
+            builder.Property(x => x.State).HasDefaultValue("inactive");
             builder.Property(x => x.RecordedVisits).HasDefaultValue(0);
         }
     }

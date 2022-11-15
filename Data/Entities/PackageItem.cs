@@ -10,6 +10,7 @@ namespace Span.Culturio.Api.Data.Entities {
 
         public virtual CultureObject CultureObject { get; set; }
         public virtual Package Package { get; set; }
+        public virtual IEnumerable<Visits> Visits { get; set; }
     }
 
     public class PackageItemConfiguration : IEntityTypeConfiguration<PackageItem> {

@@ -8,7 +8,7 @@ namespace Span.Culturio.Api.Data.Entities {
         public int ValidDays { get; set; }
 
         public virtual ICollection<PackageItem> PackageItems { get; set; }
-        public virtual ICollection<Subscriptions> Subscriptions { get; set; }
+        public virtual ICollection<Subscription> Subscriptions { get; set; }
     }
 
     public class PackageConfiguration : IEntityTypeConfiguration<Package> {

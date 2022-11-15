@@ -7,7 +7,8 @@ namespace Span.Culturio.Api.Data {
         public DbSet<User> Users { get; set; }
         public DbSet<Package> Packages { get; set; }
         public DbSet<PackageItem> PackageItems { get; set; }
-        public DbSet<Subscriptions> Subscriptions { get; set; }
+        public DbSet<Subscription> Subscriptions { get; set; }
+        public DbSet<Visits> Visits { get; set; }
 
         public DataContext(DbContextOptions<DataContext> options) : base(options) {
         }
